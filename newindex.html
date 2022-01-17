@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>mioCanvas - Craft your canvas, fast</title>
+        <meta name="description" content="The easiest way to create beautiful and unique canvases you can share on social media">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta charset="UTF-8">
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-R803YB2BJ6"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-R803YB2BJ6');
+        </script>
+
+        <link rel="stylesheet" href="newstyle.css">
+        <script defer src="js/jquery.min.js"></script>
+        <script defer src="js/jquery-ui.min.js"></script>
+        <script defer src="js/html2canvas.min.js"></script>
+        <script defer src="js/touch-punch.min.js"></script>
+        <script defer src="js/app.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display&family=Poppins&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">        
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+        <link rel="manifest" href="favicons/site.webmanifest">
+        <link rel="mask-icon" href="favicons/safari-pinned-tab.svg" color="#5e5ccb">
+        <link rel="shortcut icon" href="favicons/favicon.ico">
+        <meta name="apple-mobile-web-app-title" content="mioCanvas">
+        <meta name="application-name" content="mioCanvas">
+        <meta name="msapplication-TileColor" content="#5e5ccb">
+        <meta name="msapplication-config" content="favicons/browserconfig.xml">
+        <meta name="theme-color" content="#5e5ccb">
+
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    </head>
+
+    <body>
+        <header>
+			<h1>miocanvas</h1>
+			<button id="footerbtn">INFORMATION</button>
+			<section id="navbar" style="display: flex; width: 100%; cursor: pointer; margin-top: 10px;">
+				<div id="tabIndicator1" style="width: 50%; text-align: center; padding: 10px; display: flex; align-items: center; justify-content: center; border-bottom: 3px #f39c12 solid;">
+					<img alt="Home" src="icons/home_white_24dp.svg" style="height: 36px; width: auto;">
+				</div>
+				<div id="tabIndicator2" style="width: 50%; text-align: center; padding: 10px; display: flex; align-items: center; justify-content: center;">
+					<img alt="Create" src="icons/save_white_24dp.svg" style="height: 36px; width: auto;">
+				</div>
+			</section>
+		</header>
+
+        <section id="view">
+            <div class="menusec">
+				<h2>Font</h2>
+                <span id="f1" style="font-family: 'Poppins', sans-serif; font-size: 32px; text-decoration: underline;">Poppins</span> <br>
+                <span id="f2" style="font-family: 'Playfair Display', serif; font-size: 32px;">Playfair</span> <br>
+                <span id="f3" style="font-family: 'Pacifico', cursive; font-size: 32px;">Pacifico</span>
+            </div>
+
+            <div class="menusec">
+				<h2>Font size</h2>
+                <input type="range" id="fontsize" name="fontsize" min="16" max="72" value="30" style="width: 100%;">
+                <label for="fontsize" id="fslabel" style="font-size: 18px;">30px</label>
+            </div>
+
+            <div class="menusec">
+				<h2>Colours</h2>
+                <input type="color" id="bg" name="bg" value="#FFFFFF">
+                <label for="bg" style="font-size: 24px;">Background</label> <br>
+                <input type="color" id="text" name="text" value="#000000" style="margin-top: 20px;">
+                <label for="text" style="font-size: 24px;">Text</label>
+            </div>
+
+            <div class="menusec">
+				<h2>Text</h2>
+                <textarea id="ta" placeholder="Type here..." style="background: none; border: none; width: 100%; font-size: 24px; color: inherit; height: 90px;"></textarea>
+                <button id="moretext">ADD TEXT</button>
+            </div>
+
+            <div class="menusec">
+				<h2>Photo</h2>
+                <input id="photoupload" type="file">
+                <div style="margin: 20px;">
+                    <img id="photo" src="" alt="Your image" style="height: 175px; width: auto; display: none;">
+                </div>
+                <button id="remimg" style="display: none;">REMOVE PHOTO</button>
+                <button id="moreimg" style="display: none;">ADD PHOTO</button>
+            </div>
+        </section>
+
+        <div id="resultpage" style="display: none; flex-direction: column; justify-content: center; align-items: center; margin-top: 30px;">
+            <h2 style="margin-left: 0; margin-bottom: 10px; text-align: center;">DRAG TO MOVE<br>TAP TO RESIZE</h2>
+            <div id="result" style="width: 350px; height: 350px;"></div>
+            <h2 style="margin-left: 0; text-align: center; font-size: 14px; margin-top: 20px;">DATA IS PROCESSED ON YOUR DEVICE</h2>
+            <button id="download" style="font-size: 30px; margin: 30px; padding-left: 20px; padding-right: 20px;">DOWNLOAD</button>
+            <div style="margin-top: 80px; margin-bottom: 80px;">
+                <button id="footerbtn">INFORMATION</button>
+                <div id="dialog">
+                    <b>Version 1.0 "Material Girl"</b> <br>
+                    Changelog:<br><br>
+
+					Version 1.0:
+                    <ul>
+                        <li>Material Design adoption.</li>
+                    </ul><br><br>
+					
+					Version 0.7.1:
+                    <ul>
+                        <li>No longer abandoned.</li>
+                    </ul>
+					<br>
+                    © Copyright 2021 <br>
+                    <b>Christian Battista Giannarelli</b> <br>
+					<a href="https://www.cb-g.it" style="color: rgb(94, 92, 203);">cb-g.it</a> <br>
+                    <a href="mailto:cbgianna@icloud.com" style="color: rgb(94, 92, 203);">cbgianna@icloud.com</a> <br><br>
+                    <b>Open-source components</b> <br>
+                    jQuery, jQuery UI, HTML2Canvas, TouchPunch <br><br>
+                    <a href="https://www.iubenda.com/privacy-policy/99913514" style="color: rgb(94, 92, 203);" target="_blank" rel="noopener">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
