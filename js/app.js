@@ -208,20 +208,8 @@ $(function() {
 
     //Show hidden footer
     $(document).on("click", "#footerbtn", function() {
-        $( "#dialog" ).dialog({
-			autoOpen: false,
-			show: {
-			  effect: "blind",
-			  duration: 1000
-			},
-			hide: {
-			  effect: "explode",
-			  duration: 1000
-			}
-		})
-
-		$( "#dialog" ).dialog( "open" );
-    })
+		alert("mioCanvas 1.1\ncibigi.github.io/miocanvas\nby Christian Battista Giannarelli\nReleased under GNU GPL v3.")
+	})
 
     //Remove photo
     view.on("click", "#remimg", function() {
@@ -242,52 +230,4 @@ $(function() {
             alert("No Photo!")
         }
     })
-
-    //Service worker HTML2Canvas
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('html2canvas.min.js').then(function(registration) {
-                //Registration was successful
-            }, function(err) {
-                //Registration failed :(
-            });
-        });
-    }
-
-    //Service worker jQuery
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('jquery.min.js').then(function(registration) {
-                //Registration was successful
-            }, function(err) {
-                //Registration failed :(
-            });
-        });
-    }
-
-    // --- Cache ---
-    let MAIN_CACHE = 'aesgen-cache-v1';
-    let urlsToCache = [
-        '/',
-        '/index.html',
-        '/style.css',
-        '/js/app.js',
-        '/js/jquery.min.js',
-        '/js/jquery-ui.min.js',
-        '/js/touch-punch.min.js',
-        '/js/html2canvas.min.js',
-        '/icons'
-    ];
-
-    self.addEventListener('install', function(event) {
-        // Perform install steps
-        event.waitUntil(
-            caches.open(MAIN_CACHE)
-                .then(function(cache) {
-                console.log('Opened cache');
-                return cache.addAll(urlsToCache);
-            })
-        );
-    });
-    // --- End Cache ---
 })
