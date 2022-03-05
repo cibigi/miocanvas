@@ -12,11 +12,6 @@ $(function() {
         $("#cb").css("display", "flex").hide().fadeIn("flex")
     }
 
-    $("#cb").on("click", "#cbgo", function() {
-        $("#cb").css("display", "none")
-        localStorage.setItem("cookies", "okay")
-    })
-
     //Download procedure
     function saveAs(uri, filename) {
         let link = document.createElement('a')
@@ -177,7 +172,7 @@ $(function() {
                 
                 $("#result #resp1").draggable({
                     containment: "#result",
-                    grid: [20, 20]
+                    grid: [21, 21]
                 }) 
             } else {
                 result.html("<span style='z-index: 101; font-size:" + $("#fontsize").val() + "px; font-weight: 400; cursor: move;'>" + $("#ta").val().split("\n").join("<br>") + "</span>")
@@ -206,9 +201,9 @@ $(function() {
         }
     })
 
-    //Show hidden footer
+    //Show information
     $(document).on("click", "#footerbtn", function() {
-		alert("mioCanvas 1.1\ncibigi.github.io/miocanvas\nby Christian Battista Giannarelli\nReleased under GNU GPL v3.")
+		alert("mioCanvas 1.2\ncibigi.github.io/miocanvas\nby Christian Battista Giannarelli\nReleased under GNU GPL v3.")
 	})
 
     //Remove photo
