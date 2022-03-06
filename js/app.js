@@ -171,6 +171,7 @@ $(function() {
                 result.append("<br><span style='z-index: 101; font-size:" + $("#fontsize").val() + "px; font-weight: 400; cursor: move;'>" + $("#ta").val().split("\n").join("<br>") + "</span>")
                 
                 $("#result #resp1").draggable({
+                    snap: true,
                     containment: "#result",
                     grid: [21, 21]
                 }) 
@@ -181,6 +182,7 @@ $(function() {
             if(moretext) {
                 result.append("<br><span id='span2' style='z-index: 101; font-size:" + $("#fontsize").val() + "px; font-weight: 400; cursor: move;'>" + $("#ta2").val().split("\n").join("<br>") + "</span>")
                 $("#result #span2").draggable({
+                    snap: true,
                     containment: "#result",
                     grid: [20, 20]
                 })
@@ -189,12 +191,14 @@ $(function() {
             if(morephoto) {
                 result.append("<img id='resp2' alt='Image 2' src='" + $("#photo2").attr("src") + "' style='z-index: 100; height: 150px; width: auto; cursor: move;'>")
                 $("#result #resp2").draggable({
+                    snap: true,
                     containment: "#result",
                     grid: [20, 20]
                 })
             }
             
             $("#result span").draggable({
+                snap: true,
                 containment: "#result",
                 grid: [20, 20]
             })
